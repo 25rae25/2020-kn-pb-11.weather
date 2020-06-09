@@ -1,0 +1,74 @@
+/* 
+----------- container(부모) ------------
+- display: flex;
+
+- justify-content: flex-start | flex-end | center | space-between | space-evenly | space-around 
+- align-items: stretch | flex-start | flex-end | center 
+- align-content: flex-start | flex-end | center | space-between | space-evenly | space-around
+- flex-wrap:   nowrap | wrap 
+- flex-direction: row | row-reverse | column | column-reverse
+
+------------- items(자식) ---------------
+- flex-grow:    0, 1~9999
+- flex-shrink:  0, 1~9999
+- flex-basis:   100px | 20% | 3rem
+- order:        1, 2, 3
+- align-self:  auto | flex-start | flex-end | center | baseline | stretch
+*/
+
+html,body {height: 5000px;}
+.wrapper { max-width: 1200px; margin: auto;}
+
+.header {display: flex; border: 2px solid green; justify-content: space-between;
+align-items: center;}
+.header .logo {border: 2px solid red; font-size: 3rem;}
+.header .navi-wrap {border: 2px solid blue; display: flex;}
+.header .navi-wrap .navi {border: 2px solid orange; padding: 0.5rem 1rem;}
+
+.prd-wrap {border: 2px solid green; margin-top: 100px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.prd-wrap .prd {border: 2px solid orange; width: 32%; margin-bottom: 2%;}
+
+@media screen and (max-width: 991px) {
+	.prd-wrap .prd {width: 49%}
+}
+
+@media screen and (max-width: 767px) {
+	.prd-wrap {justify-content: center;}
+	.prd-wrap .prd {width: 96%}
+}
+
+
+.box-wrap {margin-top: 100px; border: 5px solid green; 
+	display: flex;
+	justify-content: flex-start;   
+	align-items: flex-start;
+	/* flex-wrap: wrap; */
+}
+.box-wrap .box {border: 5px solid orangered;
+	/*  
+	flex-basis: 200px;
+	flex-grow: 0;
+	flex-shrink: 1;
+	*/
+	flex: 200px 0 0;
+	height: 180px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.item-wrap {margin-top: 100px;}
+.item-wrap > .item {display: flex;}
+.item-wrap > .item  > div {flex: 50% 0 0; border: 1px solid red;}
+.item-wrap > .item  > div.item-cont{display: flex; align-items: center;
+justify-content: center;background-color: #F8f8f8;}
+
+@media screen and (max-width: 767px) {
+	.item-wrap > .item > div {flex: 100% 0 0;}
+	.item-wrap > .item > div.item-cont {order: 2; padding: 2rem;}
+}
