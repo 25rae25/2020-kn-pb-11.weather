@@ -1,34 +1,74 @@
-.wrapper {max-width: 768px; height: 100vh; margin: auto; overflow: hidden;}
+.wrapper {max-width: 768px; height: 100vh; margin: auto;}
 .wrap {width: 100%; height: 100%;}
 
 .home-wrap {display: flex; flex-direction: column;}
 
-
-.home-wrap .title-wrap  {flex: 35% 1 0; display: flex; align-items: center; letter-spacing: -3px; padding-top: 80px;}
+.home-wrap .title-wrap {flex: 35% 1 0; display: flex; align-items: center; letter-spacing: -3px; padding-top: 80px;}
 .home-wrap .title-wrap .bar {border: 2px solid yellowgreen; width: 50%;}
-.home-wrap .title-wrap .title {flex: 300px 0 0; text-align: center; position: relative;
-font-size: 3.5rem; transform: translateX(-30px); color: green;}
-.home-wrap .title-wrap .title > div {font-size: 5rem; position: absolute; width: 120%;
-top: 52px; left: 58px; color: #60b11e; text-shadow: 0 0 10px yellowgreen;}
-.home-wrap .title-wrap .title > .sun {position: absolute; top: -120px; left: -70px;}
+.home-wrap .title-wrap .title {flex: 300px 0 0; text-align: center; position: relative; font-size: 3.5rem; transform: translateX(-30px); color: green;}
+.home-wrap .title-wrap .title > div {font-size: 5rem; position: absolute; width: 120%; top: 52px; left: 58px; color: #60b11e; text-shadow: 0 0 10px yellowgreen;}
+.home-wrap .title-wrap .title > .sun {position: absolute; top: -6.875rem; left: -3.125rem;}
 
-.home-wrap .city-wrap {flex: 15% 1 0; display: flex; justify-content: center;
-align-items: center;}
-.home-wrap .city-wrap #city {width: 80%; padding: 0.75rem; font-size: 1.5rem; border: 1px solid #e2f0b6;}
+.home-wrap .city-wrap {flex: 15% 0 0; display: flex; justify-content: center; align-items: center;}
+.home-wrap .city-wrap #city {width: 60%; padding: 0.75rem; font-size: 1.5rem; border: 1px solid #becc91;}
 
-.daily-wrap {flex: 15% 0 0; display: flex; align-items: center; justify-content: center;
-border-top: 1px solid #becc91; border-bottom: 1px solid #becc91;}
-.dilay-wrap > .icon {margin-right: 20px;}
+.daily-wrap {flex: 15% 0 0; display: flex; align-items: center; justify-content: center; border-top: 1px solid #becc91; border-bottom: 1px solid #becc91; cursor: pointer;}
+.daily-wrap > .icon {margin-right: 20px;}
 .daily-wrap > .info > .daily-city {font-size: 2rem;}
 .daily-wrap > .info > .descs {display: flex; align-items: center;}
 .daily-wrap .temp {font-size: 1.5rem;}
 .daily-wrap .desc {font-size: 1.25rem; margin-left: 1rem;}
 
-.world-wrap {flex: 35% 0 0;display: flex; justify-content: space-evenly; padding: 30px 16px; font-size: 1rem;}
-.world-wrap > .city {flex: 30% 0 0; background-color: rgba(17,59,24,0.8); color: #fff;
-display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 8px;}
+.world-wrap {flex: 35% 0 0; display: flex; justify-content: space-evenly; padding: 30px 16px; font-size: 1rem;}
+.world-wrap > .city {flex: 30% 0 0; background-color: rgba(11, 32, 14, 0.8); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 8px;}
 .world-wrap .title {font-size: 1.5em;}
 .world-wrap .temp {font-size: 1.25em;}
 .world-wrap .desc {font-size: 1.125em;}
 
-.info-wrap {visibility: hidden;}
+.world-wrap .title-pc {display: block;}
+.world-wrap .title-mobile {display: none;}
+
+/******************* info-wrap ********************/
+.info-wrap {display: none; flex-direction: column; text-align: center; font-size: 1rem;}
+/* .info-wrap > div {border: 1px solid red;} */
+.info-header {padding: 1em; background-color: #2e3b34; color: #fff; font-size: 1.25em; 
+	text-align: left; cursor: pointer; width: 100%; position: fixed; left: 0; top: 0;}
+.info-title {padding-top: 2em;  font-size: 3em;}
+.info-daily {padding: 1em; font-size: 1em;}
+.info-daily .ml {margin-left: 1em;}
+.info-daily > .icon {width: 100px; margin: auto;}
+.info-daily > .temps {font-size: 1em;}
+.info-daily .main {font-size: 2em; margin-bottom: 1em;}
+.info-daily .title {color: #555;}
+.info-daily .desc {color: #1f3a1d;}
+.info-daily .unit {color: #bbb;}
+.info-daily .temp {font-size: 2.5em;}
+.info-daily .temp-detail {font-size: 1.25em; padding: 0.5em;}
+.info-daily .pressure {font-size: 1.125em; padding: 0.5em;}
+.info-daily .wind {font-size: 1.125em; padding: 0.5em;}
+
+.info-weekly {flex-grow: 1; display: flex; flex-wrap: wrap; justify-content: space-evenly; background-color: #becc91; /* overflow-y: scroll; */ text-align: left;}
+.info-weekly .week {flex: 48% 0 0; display: flex; align-items: center; background-color: #2e3b34; color: #fff; margin: 0.5% 0;}
+
+
+
+/******************* 반응형 ********************/
+@media screen and (max-width: 480px) {
+	html, body {font-size: 0.75rem;}
+
+	.home-wrap .title-wrap {padding-top: 60px;}
+	.home-wrap .title-wrap .title > .sun {width: 150px; left: 1rem;}
+	.world-wrap {flex-direction: column; justify-content: space-evenly; padding: 0;}
+	.world-wrap > .city {flex-grow: 1; flex-direction: row; align-items: center; justify-content: flex-start; padding: 0;}
+	.world-wrap > .city:not(:last-child) {border-bottom: 1px solid #becc91;}
+	.world-wrap .icon > img {width: 80px;}
+	.world-wrap .title-pc {display: none;}
+	.world-wrap .title-mobile {display: block;}
+	.world-wrap .desc-mobile {display: flex; align-items: center;}
+	.world-wrap .desc {margin-left: 1rem;}
+	.info-wrap {font-size: 1.125rem;}
+	.info-title {font-size: 2.5em;}
+	.info-daily .main {font-size: 1.5em;}
+	.info-daily .temp {font-size: 2em;}
+	.info-weekly .week {flex: 98% 0 0;}
+}
